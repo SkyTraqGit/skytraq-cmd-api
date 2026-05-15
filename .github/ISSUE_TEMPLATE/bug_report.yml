@@ -1,0 +1,76 @@
+name: Bug report
+description: Report a defect in gnss_tool
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug report. Please fill in
+        each section — the more we know up front, the faster we can fix it.
+
+  - type: input
+    id: version
+    attributes:
+      label: gnss_tool version / commit
+      description: Output of `git rev-parse --short HEAD`, or the release tag.
+      placeholder: "v1.0.0 (or commit abc1234)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Linux
+        - Windows (MSYS2 UCRT64)
+        - Windows (native MinGW)
+        - Other (please describe in additional context)
+    validations:
+      required: true
+
+  - type: input
+    id: compiler
+    attributes:
+      label: Compiler and version
+      placeholder: "gcc 13.2.0"
+    validations:
+      required: true
+
+  - type: input
+    id: receiver
+    attributes:
+      label: SkyTraq receiver / firmware
+      description: Output of `gnss_tool -q 0x02 0` if you can get it.
+      placeholder: "PX1122R, Kernel 1.4.32, ODM 1.0.1"
+
+  - type: textarea
+    id: command
+    attributes:
+      label: Command line
+      description: The exact invocation that triggers the bug.
+      render: shell
+      placeholder: "gnss_tool -p /dev/ttyUSB0 -b 115200 -q 0x5B 0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Paste full stdout/stderr. If you can, attach a raw frame captured with `-o FILE`.
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Anything else relevant — logic-analyzer trace, prior receiver state, etc.

@@ -1,0 +1,36 @@
+# Build artefacts
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+*.exe
+gnss_tool
+gnss_tool.exe
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Test output
+*.bin
+!docs/**/*.bin
+test_output/
+*.log
+
+# Python bytecode (for fake_gnss.py / real_tests.py)
+__pycache__/
+*.pyc
+*.pyo
+
+# Coverage / analysis
+*.gcda
+*.gcno
+*.gcov
+coverage/
